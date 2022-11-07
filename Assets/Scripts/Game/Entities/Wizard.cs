@@ -21,6 +21,8 @@ public class Wizard : MonoBehaviour, IWizard
     public void Init(int id)
     {
         ID = id;
+
+        gameObject.name = "Wizard_" + ID;
     }
 
     public void SetHealth(int value)
