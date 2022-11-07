@@ -21,7 +21,6 @@ public class WizardRepository : IWizardRepository
     private void CreateWizard()
     {
         GameObject wizardGameObject = new GameObject();
-        wizardGameObject.name = "Wizard_" + uniqueID;
 
         Wizard wizardEntity = wizardGameObject.AddComponent<Wizard>();
         wizardEntity.Init(uniqueID);
