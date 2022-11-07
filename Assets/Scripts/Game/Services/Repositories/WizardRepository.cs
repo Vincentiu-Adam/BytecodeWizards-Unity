@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WizardRepository : MonoBehaviour
+public class WizardRepository : IWizardRepository
 {
     private static int uniqueID = 0;
 
