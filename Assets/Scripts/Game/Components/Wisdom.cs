@@ -2,5 +2,5 @@
 
 public class Wisdom : MonoBehaviour
 {
-    public float Value;
+    public int Value;
 }

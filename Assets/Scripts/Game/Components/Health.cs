@@ -2,5 +2,5 @@
 
 public class Health : MonoBehaviour
 {
-    public float Value;
+    public int Value;
 }
