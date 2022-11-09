@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 95538263452871118}
   - component: {fileID: 136306802490482818}
   m_Layer: 0
-  m_Name: PolyArtWizardStandardMat
+  m_Name: PolyArtWizardPurpleMat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -677,7 +677,7 @@ Transform:
   - {fileID: 4358465402289130}
   - {fileID: 4668634257833992}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95538263452871118
 Animator:
@@ -1135,7 +1135,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c33a548d6df8c8a4daca736f3300dd9c, type: 2}
+  - {fileID: 2100000, guid: bc69fc6ad5b6c7645aa0c00ecda79767, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
