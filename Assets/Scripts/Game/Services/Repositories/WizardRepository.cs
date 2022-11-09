@@ -4,13 +4,15 @@ public class WizardRepository : IWizardRepository
 {
     private static int uniqueID = 0;
 
-    private const int MAX_WIZARDS = 2;
+    public const int MAX_WIZARDS = 2;
     private Wizard[] wizards = new Wizard[MAX_WIZARDS]; //simple game, 2 wizards :D
 
     private NullWizard nullWizard = new NullWizard();
 
     public WizardRepository()
     {
+        uniqueID = 0;
+
         //simple game; create wizards and be done
         for (int i = 0; i < MAX_WIZARDS; i++)
         {

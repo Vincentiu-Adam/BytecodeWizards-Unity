@@ -8,6 +8,7 @@ public class Wizard : MonoBehaviour, IWizard
 
     private Health healthComponent;
     public int Health => healthComponent.Value;
+    public int MaxHealth => 100;
 
     private Wisdom wisdomComponent;
     public int Wisdom => wisdomComponent.Value;
