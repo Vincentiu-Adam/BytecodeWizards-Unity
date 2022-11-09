@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    private VM spellVM = new VM();
-
     private void Awake()
     {
         SetupLocators();
@@ -12,8 +10,11 @@ public class Main : MonoBehaviour
         //TO DO : load some spells here then go to town :D
         SpellRepository spellRepository = ServiceLocator.GetSpellRepository();
 
+        //cast fire spell
         byte[] fireSpellData = spellRepository.GetSpellData(SpellType.FIRE);
-        PrintSpell(fireSpellData);
+
+        VM spellVM = ServiceLocator.GetVM();
+        spellVM.Interpret(fireSpellData);
     }
 
     private void SetupLocators()
@@ -23,6 +24,9 @@ public class Main : MonoBehaviour
 
         SpellRepository spellRepository = new SpellRepository();
         ServiceLocator.ProvideSpellRepository(spellRepository);
+
+        VM spellVM = new VM();
+        ServiceLocator.ProvideSpellVM(spellVM);
     }
 
     private void PrintSpell(byte[] spellData)

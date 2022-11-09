@@ -8,6 +8,8 @@ public class ServiceLocator : MonoBehaviour
 
     private static SpellRepository spellRepository = null;
 
+    private static VM spellVM = null;
+
     public static void ProvideWizardRepository(WizardRepository repository)
     {
         if (repository == null)
@@ -24,6 +26,11 @@ public class ServiceLocator : MonoBehaviour
         spellRepository = repository;
     }
 
+    public static void ProvideSpellVM(VM vm)
+    {
+        spellVM = vm;
+    }
+
     public static IWizardRepository GetWizardRepository()
     {
         return wizardRepository;
@@ -32,5 +39,9 @@ public class ServiceLocator : MonoBehaviour
     public static SpellRepository GetSpellRepository()
     {
         return spellRepository;
+    }
+    public static VM GetVM()
+    {
+        return spellVM;
     }
 }
