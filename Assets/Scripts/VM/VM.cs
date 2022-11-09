@@ -11,7 +11,8 @@ public enum Instruction : byte
     ADD         = 0xC5,
     SUBTRACT    = 0xC6, //cannot be assed to do signed bit gymnastics
     MULTIPLY    = 0xC7,
-    DIVIDE      = 0xC8 //cannot be assed to do float gymnastics
+    DIVIDE      = 0xC8, //cannot be assed to do float gymnastics
+    PLAY_ANIM   = 0xC9
 }
 
 public class VM
@@ -99,6 +100,14 @@ public class VM
                     Push(a / b);
 
                     break;
+
+                case (byte)Instruction.PLAY_ANIM:
+                    int trigger = Pop();
+                    wizardID = Pop();
+
+                    PlayAnimation(wizardID, trigger);
+
+                    break;
             }
         }
     }
@@ -145,5 +154,13 @@ public class VM
 
         IWizard wizard = wizardRepository.GetWizard(wizardID);
         wizard.SetWisdom(amount);
+    }
+
+    private void PlayAnimation(int wizardID, int trigger)
+    {
+        WizardPresentationRepository wizardPresentationRepository = ServiceLocator.GetWizardPresentationRepository();
+
+        WizardPresentation wizardPresentation = wizardPresentationRepository.GetWizard(wizardID);
+        wizardPresentation.SetAnimation(trigger);
     }
 }
