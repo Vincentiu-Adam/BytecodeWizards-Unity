@@ -6,27 +6,26 @@ public enum SpellType : uint
 {
     FIRE,
     ICE,
-    LIGHTNING
+    LIGHTNING,
+    HEAL
 }
 
 public class SpellRepository
 {
+    private string dirName = Application.dataPath + "./Spells";
+
     //spells are a list of bytecode
     private List<byte[]> spellList = new List<byte[]>();
-
-    private string[] spellNames = new string[] { "fire.bin", "ice.bin", "lightning.bin" };
 
     private byte[] emptySpell = new byte[0];
 
     public SpellRepository()
     {
-        //go through all dir names and load the spells
-        string rootPath = Application.dataPath + "/Spells/";
-        foreach (string spellName in spellNames)
+        //go through files in spell dir and load data
+        string[] spellFiles = Directory.GetFiles(dirName, "*.bin");
+        foreach (string spellFile in spellFiles)
         {
-            string path = rootPath + spellName;
-
-            using (FileStream file = File.Open(path, FileMode.Open))
+            using (FileStream file = File.Open(spellFile, FileMode.Open))
             {
                 using (BinaryReader reader = new BinaryReader(file))
                 {
