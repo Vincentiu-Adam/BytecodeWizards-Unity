@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: wizardID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1590062292917551611, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
+      propertyPath: m_Name
+      value: button_spell_ice
+      objectReference: {fileID: 0}
     - target: {fileID: 1590062292917551612, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 1590062292919788840, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590062292919788855, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
+      propertyPath: m_Name
+      value: button_spell_heal
       objectReference: {fileID: 0}
     - target: {fileID: 1590062293571463511, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
       propertyPath: m_AnchorMax.y
@@ -244,9 +252,17 @@ PrefabInstance:
       propertyPath: wizardID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3700255820102425589, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
+      propertyPath: spellType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5792288012403406713, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
       propertyPath: wizardID
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792288012403406713, guid: ef162be9d88863748bf28dc5b851ae45, type: 3}
+      propertyPath: spellType
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
