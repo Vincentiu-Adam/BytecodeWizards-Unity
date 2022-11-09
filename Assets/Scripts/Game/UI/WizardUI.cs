@@ -22,7 +22,7 @@ public class WizardUI : MonoBehaviour
     {
         IWizard wizard = GetWizard();
 
-        float ratio = wizard.Health / wizard.MaxHealth;
+        float ratio = wizard.Health / (float) wizard.MaxHealth;
         healthSlider.value = ratio;
     }
 
