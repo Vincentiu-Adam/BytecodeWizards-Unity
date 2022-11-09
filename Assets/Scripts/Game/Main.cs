@@ -7,22 +7,8 @@ public class Main : MonoBehaviour
     {
         SetupLocators();
 
-        //load some spells here then go to town :D
-        SpellRepository spellRepository = ServiceLocator.GetSpellRepository();
-
-        //cast fire spell
-        byte[] fireSpellData = spellRepository.GetSpellData(SpellType.FIRE);
-
-        VM spellVM = ServiceLocator.GetVM();
-        spellVM.Interpret(fireSpellData);
-
         //init UI
-        UIRepository uiRepository = ServiceLocator.GetUIRepository();
-        for (int i = 0; i < WizardRepository.MAX_WIZARDS; i++)
-        {
-            WizardUI wizardUI = uiRepository.GetWizardUI(i);
-            wizardUI.UpdateData();
-        }
+        Utility.UpdateUIData();
     }
 
     private void SetupLocators()

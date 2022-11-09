@@ -5,9 +5,6 @@ using UnityEngine.UI;
 public class SpellUI : MonoBehaviour
 {
     [SerializeField]
-    private uint wizardID;
-
-    [SerializeField]
     private SpellType spellType;
 
     private void Awake()
@@ -26,9 +23,6 @@ public class SpellUI : MonoBehaviour
         spellVM.Interpret(spellData);
 
         //update ui
-        UIRepository uiRepository = ServiceLocator.GetUIRepository();
-
-        WizardUI wizardUI = uiRepository.GetWizardUI((int)wizardID);
-        wizardUI.UpdateData();
+        Utility.UpdateUIData();
     }
 }
