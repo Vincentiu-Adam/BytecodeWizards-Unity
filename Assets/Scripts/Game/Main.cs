@@ -16,6 +16,9 @@ public class Main : MonoBehaviour
         WizardRepository wizardRepository = new WizardRepository();
         ServiceLocator.ProvideWizardRepository(wizardRepository);
 
+        WizardPresentationRepository wizardPresentationRepository = new WizardPresentationRepository();
+        ServiceLocator.ProvideWizardPresentationRepository(wizardPresentationRepository);
+
         SpellRepository spellRepository = new SpellRepository();
         ServiceLocator.ProvideSpellRepository(spellRepository);
 
