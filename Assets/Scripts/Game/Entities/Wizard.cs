@@ -28,11 +28,11 @@ public class Wizard : MonoBehaviour, IWizard
 
     public void SetHealth(int value)
     {
-        healthComponent.Value = value;
+        healthComponent.Value = Mathf.Clamp(value, 0, MaxHealth);
     }
 
     public void SetWisdom(int value)
     {
-        wisdomComponent.Value = value;
+        wisdomComponent.Value = Mathf.Min(value, 0);
     }
 }
