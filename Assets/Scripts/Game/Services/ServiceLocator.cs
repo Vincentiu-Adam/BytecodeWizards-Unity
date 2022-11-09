@@ -6,6 +6,8 @@ public class ServiceLocator : MonoBehaviour
 
     private static IWizardRepository wizardRepository = nullWizardRepository;
 
+    private static SpellRepository spellRepository = null;
+
     public static void ProvideWizardRepository(WizardRepository repository)
     {
         if (repository == null)
@@ -17,8 +19,18 @@ public class ServiceLocator : MonoBehaviour
         wizardRepository = repository;
     }
 
+    public static void ProvideSpellRepository(SpellRepository repository)
+    {
+        spellRepository = repository;
+    }
+
     public static IWizardRepository GetWizardRepository()
     {
         return wizardRepository;
+    }
+
+    public static SpellRepository GetSpellRepository()
+    {
+        return spellRepository;
     }
 }
