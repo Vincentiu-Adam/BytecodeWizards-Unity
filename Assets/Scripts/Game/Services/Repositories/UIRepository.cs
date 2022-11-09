@@ -17,13 +17,13 @@ public class UIRepository
         }
     }
 
-    public WizardUI GetWizardUI(int wizardID)
+    public WizardUI GetWizardUI(int id)
     {
-        if (wizardID < 0 || wizardID >= wizardUIs.Count)
+        if (id < 0 || id >= wizardUIs.Count)
         {
             return null;
         }
 
-        return wizardUIs[wizardID];
+        return wizardUIs[id];
     }
 }

@@ -4,8 +4,8 @@ public class WizardRepository : IWizardRepository
 {
     private static int uniqueID = 0;
 
-    public const int MAX_WIZARDS = 2;
-    private Wizard[] wizards = new Wizard[MAX_WIZARDS]; //simple game, 2 wizards :D
+    public const int MAX_WIZARDS = 2; //simple game, 2 wizards :D
+    private Wizard[] wizards = new Wizard[MAX_WIZARDS];
 
     private NullWizard nullWizard = new NullWizard();
 
@@ -34,7 +34,7 @@ public class WizardRepository : IWizardRepository
 
     public IWizard GetWizard(int id)
     {
-        if (id >= MAX_WIZARDS)
+        if (id < 0 || id >= MAX_WIZARDS)
         {
             return nullWizard; //send null object to avoid null refs :D
         }
