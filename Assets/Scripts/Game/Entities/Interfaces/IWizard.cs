@@ -10,4 +10,6 @@
     public void SetHealth(int value);
 
     public void SetWisdom(int value);
+
+    public void Revive();
 }

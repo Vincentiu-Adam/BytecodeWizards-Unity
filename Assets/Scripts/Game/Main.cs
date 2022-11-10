@@ -11,6 +11,12 @@ public class Main : MonoBehaviour
         Utility.UpdateUIData();
     }
 
+    private void Update()
+    {
+        //check if one of the wizards is dead, trigger animation and reset stats
+        TriggerDieAnimation();
+    }
+
     private void SetupLocators()
     {
         WizardRepository wizardRepository = new WizardRepository();
@@ -27,6 +33,30 @@ public class Main : MonoBehaviour
 
         VM spellVM = new VM();
         ServiceLocator.ProvideSpellVM(spellVM);
+    }
+
+    private void TriggerDieAnimation()
+    {
+        IWizardRepository wizardRepository = ServiceLocator.GetWizardRepository();
+
+        for (int i = 0; i < WizardRepository.MAX_WIZARDS; i++)
+        {
+            IWizard wizard = wizardRepository.GetWizard(i);
+            if (wizard.Health == 0)
+            {
+                WizardPresentationRepository presentationRepository = ServiceLocator.GetWizardPresentationRepository();
+                UIRepository uiRepository = ServiceLocator.GetUIRepository();
+
+                WizardPresentation wizardPresentation = presentationRepository.GetWizard(i);
+                WizardUI wizardUI = uiRepository.GetWizardUI(i);
+
+                wizard.Revive();
+                wizardPresentation.SetAnimation(5); //trigger death animation
+
+                wizardUI.UpdateData(); //we reset stats so update the data
+            }
+        }
+
     }
 
     private void PrintSpell(byte[] spellData)

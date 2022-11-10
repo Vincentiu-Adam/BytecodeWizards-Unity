@@ -13,10 +13,14 @@ public class Wizard : MonoBehaviour, IWizard
     private Wisdom wisdomComponent;
     public int Wisdom => wisdomComponent.Value;
 
+    private int startingWisdom = 0;
+
     private void Awake()
     {
         healthComponent = GetComponent<Health>();
         wisdomComponent = GetComponent<Wisdom>();
+
+        startingWisdom = Wisdom;
     }
 
     public void Init(int id)
@@ -34,5 +38,11 @@ public class Wizard : MonoBehaviour, IWizard
     public void SetWisdom(int value)
     {
         wisdomComponent.Value = Mathf.Min(value, 0);
+    }
+
+    public void Revive()
+    {
+        SetHealth(MaxHealth);
+        SetWisdom(startingWisdom);
     }
 }

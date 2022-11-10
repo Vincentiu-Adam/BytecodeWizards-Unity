@@ -16,4 +16,9 @@ public class NullWizard : IWizard
     public void SetWisdom(int value)
     {
     }
+
+    public void Revive()
+    {
+    }
+
 }
