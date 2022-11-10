@@ -37,7 +37,7 @@ public class Wizard : MonoBehaviour, IWizard
 
     public void SetWisdom(int value)
     {
-        wisdomComponent.Value = Mathf.Min(value, 0);
+        wisdomComponent.Value = Mathf.Max(value, 0);
     }
 
     public void Revive()
