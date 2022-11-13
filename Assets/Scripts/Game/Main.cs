@@ -13,6 +13,10 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
+        //update spell repository
+        SpellRepository spellRepository = ServiceLocator.GetSpellRepository();
+        spellRepository.Update();
+
         //check if one of the wizards is dead, trigger animation and reset stats
         TriggerDieAnimation();
     }
