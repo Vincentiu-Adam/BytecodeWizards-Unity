@@ -81,6 +81,7 @@ public class SpellRepository
                         //if same do nothing, otherwise reload?
                         if (!spellData.MD5Hash.Equals(md5Hash))
                         {
+                            spellData.MD5Hash = md5Hash;
                             spellData.Data = data;
                         }
                     }
