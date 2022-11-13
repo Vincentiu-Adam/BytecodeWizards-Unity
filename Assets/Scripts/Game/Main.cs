@@ -35,6 +35,9 @@ public class Main : MonoBehaviour
         UIRepository uiRepository = new UIRepository();
         ServiceLocator.ProvideUIRepository(uiRepository);
 
+        VFXRepository vfxRepository = new VFXRepository();
+        ServiceLocator.ProvideVFXRepository(vfxRepository);
+
         VM spellVM = new VM();
         ServiceLocator.ProvideSpellVM(spellVM);
     }

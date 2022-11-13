@@ -12,6 +12,8 @@ public class ServiceLocator : MonoBehaviour
 
     private static UIRepository uiRepository = null;
 
+    private static VFXRepository vfxRepository = null;
+
     private static VM spellVM = null;
 
     public static void ProvideWizardRepository(WizardRepository repository)
@@ -41,6 +43,11 @@ public class ServiceLocator : MonoBehaviour
         uiRepository = repository;
     }
 
+    public static void ProvideVFXRepository(VFXRepository repository)
+    {
+        vfxRepository = repository;
+    }
+
     public static void ProvideSpellVM(VM vm)
     {
         spellVM = vm;
@@ -64,6 +71,11 @@ public class ServiceLocator : MonoBehaviour
     public static UIRepository GetUIRepository()
     {
         return uiRepository;
+    }
+
+    public static VFXRepository GetVFXRepository()
+    {
+        return vfxRepository;
     }
 
     public static VM GetVM()
