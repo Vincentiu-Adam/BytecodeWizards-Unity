@@ -1,4 +1,5 @@
-﻿using UnityEngine.Assertions;
+﻿using UnityEngine;
+using UnityEngine.Assertions;
 
 public enum Instruction : byte
 {
@@ -12,7 +13,8 @@ public enum Instruction : byte
     SUBTRACT    = 0xC6, //cannot be assed to do signed bit gymnastics
     MULTIPLY    = 0xC7,
     DIVIDE      = 0xC8, //cannot be assed to do float gymnastics
-    PLAY_ANIM   = 0xC9
+    PLAY_ANIM   = 0xC9,
+    PLAY_VFX    = 0xCA,
 }
 
 public class VM
@@ -108,6 +110,14 @@ public class VM
                     PlayAnimation(wizardID, trigger);
 
                     break;
+
+                case (byte)Instruction.PLAY_VFX:
+                    int vfxID = Pop();
+                    wizardID = Pop();
+
+                    PlayVFX(wizardID, vfxID);
+
+                    break;
             }
         }
     }
@@ -162,5 +172,20 @@ public class VM
 
         WizardPresentation wizardPresentation = wizardPresentationRepository.GetWizard(wizardID);
         wizardPresentation.SetAnimation(trigger);
+    }
+
+    private void PlayVFX(int wizardID, int vfxID)
+    {
+        WizardPresentationRepository wizardPresentationRepository = ServiceLocator.GetWizardPresentationRepository();
+        VFXRepository vfxRepository = ServiceLocator.GetVFXRepository();
+
+        WizardPresentation wizardPresentation = wizardPresentationRepository.GetWizard(wizardID);
+
+        ParticleSystem vfx = vfxRepository.GetParticleSystem(vfxID);
+        vfx.Stop();
+
+        //set to wizard pos and play
+        vfx.transform.position = wizardPresentation.transform.position;
+        vfx.Play();
     }
 }
