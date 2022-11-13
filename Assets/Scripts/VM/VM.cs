@@ -46,8 +46,8 @@ public class VM
                     break;
 
                 case (byte)Instruction.SET_HEALTH:
-                    int amount = Pop();
                     wizardID = Pop();
+                    int amount = Pop();
 
                     SetHealth(wizardID, amount);
 
@@ -62,8 +62,8 @@ public class VM
                     break;
 
                 case (byte)Instruction.SET_WISDOM:
-                    amount = Pop();
                     wizardID = Pop();
+                    amount = Pop();
 
                     SetWisdom(wizardID, amount);
 
@@ -104,16 +104,16 @@ public class VM
                     break;
 
                 case (byte)Instruction.PLAY_ANIM:
-                    int trigger = Pop();
                     wizardID = Pop();
+                    int trigger = Pop();
 
                     PlayAnimation(wizardID, trigger);
 
                     break;
 
                 case (byte)Instruction.PLAY_VFX:
-                    int vfxID = Pop();
                     wizardID = Pop();
+                    int vfxID = Pop();
 
                     PlayVFX(wizardID, vfxID);
 
